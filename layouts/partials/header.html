@@ -9,32 +9,13 @@
         </svg>
       </a>
     </div>
-    <div class="Header-item d-md-none">
-      <button class="Header-link btn-link js-details-target" type="button"
-        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
-        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
-          <path fill-rule="evenodd"
-            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
-          </path>
-        </svg>
-      </button>
-    </div>
-    <div style="display: none;" id="header-search"
+
+    <div style="display: none;" id="header-title"
       class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
-      <div
-        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
-        <div class="position-relative">
-          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
-            autocomplete="off">
-            <label
-              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
-              <input type="text"
-                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
-                name="q" value="" placeholder="Search" autocomplete="off">
-              <input type="hidden" name="q" value="site:{{ .Site.BaseURL }}">
-            </label>
-          </form>
-        </div>
+      <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+        <a class="Header-link" href="{{ .Site.BaseURL }}">
+          {{ .Site.Params.author }}
+        </a>
       </div>
     </div>
 
@@ -48,7 +29,7 @@
         </svg>
       </a>
     </div>
-    <div class="Header-item" style="margin-right: 0;">
+    <!--<div class="Header-item" style="margin-right: 0;">
       <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
         <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
           version="1.1" width="16" height="16">
@@ -57,6 +38,6 @@
           </path>
         </svg>
       </a>
-    </div>
+    </div>-->
   </header>
 </div>
