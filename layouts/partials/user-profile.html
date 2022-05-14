@@ -154,7 +154,7 @@
 
           {{ if .Site.Params.curseforge }}
           <a style="margin: 0 10px 10px 0;" href="https://www.curseforge.com/members/{{ .Site.Params.curseforge }}/projects">
-            <img alt="@curseforge" width="32" height="32" src="{{ "images/curseforge.svg" | absURL }}" class="avatar">
+            <img alt="@curseforge" width="32" height="32" src="{{ "images/curseforge.png" | absURL }}" class="avatar">
           </a>
           {{ end }}
 
@@ -167,6 +167,12 @@
           {{ if .Site.Params.spigot }}
           <a style="margin: 0 10px 10px 0;" href="https://www.spigotmc.org/members/{{ .Site.Params.spigot }}">
             <img alt="@spigot" width="32" height="32" src="{{ "images/spigot.png" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
+          {{ if .Site.Params.kofi }}
+          <a style="margin: 0 10px 10px 0;" href="https://ko-fi.com/{{ .Site.Params.kofi }}">
+            <img alt="@kofi" width="32" height="32" src="{{ "images/kofi.svg" | absURL }}" class="avatar">
           </a>
           {{ end }}
 
@@ -190,6 +196,13 @@
           </a>
           {{ end }}
          </div>
+         
+         {{ if .Site.Params.discordinvite }}
+         <a href="{{ .Site.Params.discordinvite }}">
+            <img width=280 src="https://discordapp.com/api/guilds/{{ .Site.Params.discordserverid }}/widget.png?style=banner1" alt="">
+         </a>
+         {{ end }}
+
         </div>
       </div>
     </div>
