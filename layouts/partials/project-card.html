@@ -25,7 +25,15 @@
       </div>
 
       {{ if .Params.icon }}
-      <img src="{{.Params.icon}}" width="100%" /> 
+      <div class="flex-justify-center d-flex">
+        <a href="{{ .Permalink }}">
+      {{if hasPrefix .Params.icon "/"}}
+      <img src="{{ .Site.BaseURL }}/{{.Params.icon}}" style="max-height:200px" /> 
+      {{else}}
+      <img src="{{.Params.icon}}" style="max-height:200px" /> 
+      {{end}}
+      </a>
+      </div>
       {{ end}}
 
       <div name="summary" class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
@@ -34,7 +42,7 @@
 
       <div class="d-inline-flex">
         {{ if and .Params.githubuser .Params.githubrepo }}
-        <a class="github-button" href="https://github.com/{{.Params.githubuser}}/{{.Params.githubrepo}}" data-icon="octicon-star" data-show-count="true" aria-label="Star {{.Params.githubuser}}/{{.Params.githubrepo}} on GitHub">Star</a>
+        <a class="github-button" href="https://github.com/{{.Params.githubuser}}/{{.Params.githubrepo}}" data-show-count="{{ not $.Site.IsServer }}" data-icon="octicon-star" data-show-count="true" aria-label="Star {{.Params.githubuser}}/{{.Params.githubrepo}} on GitHub">Star</a>
         {{end}}
         {{ if .Params.curseforgeid}}
         <a {{if .Params.curseforge}}href="https://www.curseforge.com/minecraft/mc-mods/{{.Params.curseforge}}" {{end}}><img class="pr-1 pl-1" style="height: fit-content;" src="https://cf.way2muchnoise.eu/short_{{.Params.curseforgeid}}.svg"/></a>
