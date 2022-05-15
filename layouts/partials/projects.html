@@ -1,0 +1,99 @@
+{{ define "projects" }}
+<div>
+  <br>
+  <div class="position-relative">
+    <div>
+      {{ if eq .Type "tags" }}
+      <div class="TableObject border-bottom border-gray-light py-3">
+        <div class="user-repo-search-results-summary TableObject-item TableObject-item--primary v-align-top">
+          <strong>{{ len .Pages }}</strong>
+          results
+          for <strong>{{ .Params.title }}</strong>
+        </div>
+        <div class="TableObject-item text-right v-align-top">
+          <a class="issues-reset-query text-normal d-inline-block ml-3" href="{{ .Site.BaseURL }}/project/">
+            <svg class="octicon octicon-x issues-reset-query-icon mt-1" viewBox="0 0 16 16" version="1.1" width="16"
+              height="16">
+              <path fill-rule="evenodd"
+                d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z">
+              </path>
+            </svg>
+            Clear filter
+          </a>
+        </div>
+      </div>
+      {{ end }}
+      <ul>
+        <ol class="d-flex flex-wrap list-style-none gutter-condensed mb-4 js-pinned-items-reorder-list">
+        {{ range .Paginator.Pages }}
+        <li class="col-12 col-md-6 col-lg-6 mb-3 d-flex flex-content-stretch">
+          <div
+            class="Box pinned-item-list-item d-flex p-3 width-full js-pinned-item-list-item public source reorderable sortable-button-item">
+            <div class="pinned-item-list-item-content">
+              <div class="d-flex width-full flex-items-center position-relative">
+                {{if eq .Type "post"}}
+                <svg class="octicon octicon-repo mr-2 text-gray flex-shrink-0" viewBox="0 0 16 16" version="1.1"
+                  width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
+                  </path>
+                
+                
+                </svg>
+                {{end}}
+                {{if eq .Type "project"}}
+                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-table UnderlineNav-octicon d-none d-sm-inline">
+                  <path fill-rule="evenodd" d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v3.585a.746.746 0 010 .83v8.085A1.75 1.75 0 0114.25 16H6.309a.748.748 0 01-1.118 0H1.75A1.75 1.75 0 010 14.25V6.165a.746.746 0 010-.83V1.75zM1.5 6.5v7.75c0 .138.112.25.25.25H5v-8H1.5zM5 5H1.5V1.75a.25.25 0 01.25-.25H5V5zm1.5 1.5v8h7.75a.25.25 0 00.25-.25V6.5h-8zm8-1.5h-8V1.5h7.75a.25.25 0 01.25.25V5z"></path>
+                </svg>
+                {{end}}
+                <a class="text-bold flex-auto min-width-0" href="{{ .Permalink }}">
+                  <h3 class="repo" title="{{ .Title }}">{{ .Title }}</h3>
+                </a>
+              </div>
+
+              {{ if .Params.icon }}
+              <img src="{{.Params.icon}}" width="100%" /> 
+              {{ end}}
+
+              <div name="summary" class="pinned-item-desc text-gray text-small d-block mt-2 mb-3">
+                {{ .Summary | safeHTML }}
+              </div>
+
+              <p class="mb-0 f6 text-gray">
+                {{ with .Params.tags }}
+                {{ range $tag := (first 5 .) }}
+                <a href="{{ relURL (print "/tags/" . | urlize) }}" class="pinned-item-meta muted-link ">
+                  <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                    <path fill-rule="evenodd"
+                      d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                    </path>
+                  </svg>
+                  {{ $tag }}
+                </a>
+                {{ end }}
+                {{ end }}
+              </p>
+            </div>
+          </div>
+        </li>
+        {{ end }}
+        </ol>
+      </ul>
+      <div class="paginate-container">
+        <div class="BtnGroup">
+          {{ if .Paginator.HasPrev }}
+          <a rel="nofollow" class="btn btn-outline BtnGroup-item" href="{{ .Paginator.Prev.URL }}">Previous</a>
+          {{ else }}
+          <button class="btn btn-outline BtnGroup-item" disabled="disabled">Previous</button>
+          {{ end }}
+          {{ if .Paginator.HasNext }}
+          <a rel="nofollow" class="btn btn-outline BtnGroup-item" href="{{ .Paginator.Next.URL }}">Next</a>
+          {{ else }}
+          <button class="btn btn-outline BtnGroup-item" disabled="disabled">Next</button>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

@@ -199,7 +199,7 @@
          
          {{ if .Site.Params.discordinvite }}
          <a href="{{ .Site.Params.discordinvite }}">
-            <img width=280 src="https://discordapp.com/api/guilds/{{ .Site.Params.discordserverid }}/widget.png?style=banner1" alt="">
+            <img width="100%" src="https://discordapp.com/api/guilds/{{ .Site.Params.discordserverid }}/widget.png?style=banner1" alt="">
          </a>
          {{ end }}
 
@@ -210,9 +210,13 @@
     <div class="flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0">
       {{ partial "mobile-menus.html" . }}
       {{ if .IsHome }}
-      {{ block "overview" . }}{{ end }}
-      {{ else }}
-      {{ block "posts" . }}{{ end }}
+        {{ block "overview" . }}{{ end }}
+      {{ else if eq .Type "post" }}
+        {{ block "posts" . }}{{ end }}
+      {{ else if eq .Type "project" }}
+        {{ block "projects" . }}{{ end }}
+      {{ else if eq .Type "tags" }}
+        {{ block "projects" . }}{{ end }}
       {{ end }}
     </div>
   </div>
