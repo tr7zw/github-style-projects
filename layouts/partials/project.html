@@ -15,7 +15,7 @@
                 <h1 class="break-word f3 text-normal mb-md-0 mb-1">
                   <span class="author">
                     <a href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a></span><span
-                    class="path-divider">/ Project /</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                    class="path-divider">/ <a href="{{ .Site.BaseURL }}/project">project</a> /</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
                       href="{{ .Permalink }}">{{ .Title }}</a></strong>
                 </h1>
                 <div class="note m-0">
@@ -34,6 +34,45 @@
             </div>
           </div>
         </div>
+        <nav data-pjax="#js-repo-pjax-container" aria-label="Repository" data-view-component="true"
+          class="js-repo-nav js-sidenav-container-pjax js-responsive-underlinenav overflow-hidden UnderlineNav px-3 px-md-4 px-lg-5">
+        
+          <ul data-view-component="true" class="UnderlineNav-body list-style-none">
+        
+            <li data-view-component="true" class="d-inline-flex">
+              <a data-view-component="true"
+                class="UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item selected">
+        
+                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true"
+                  class="octicon octicon-book UnderlineNav-octicon d-none d-sm-inline">
+                  <path fill-rule="evenodd"
+                    d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z">
+                  </path>
+                </svg>
+                <span>Overview</span>
+              </a>
+            </li>
+        
+            {{ if and .Params.githubuser .Params.githubrepo }}
+            <li data-view-component="true" class="d-inline-flex">
+              <a href="https://github.com/{{.Params.githubuser}}/{{.Params.githubrepo}}"
+                class="UnderlineNav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item">
+        
+                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true"
+                  class="octicon octicon-code UnderlineNav-octicon d-none d-sm-inline">
+                  <path fill-rule="evenodd"
+                    d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z">
+                  </path>
+                </svg>
+                <span>Github</span>
+              </a>
+            </li>
+            {{ end}}
+        
+          </ul>
+          </details>
+          </div>
+        </nav>
       </div>
     </div>
 
@@ -57,9 +96,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      {{ countwords .Content }} Words
-                    <!-- <span class="file-info-divider"></span>
-                                        {{ .ReadingTime }} min -->
+
 
                   </div>
                   <div class="file-actions flex-order-2 pt-0">
@@ -89,7 +126,9 @@
           </div>
         </div>
       </div>
+
     </div>
+    
   </main>
 </div>
 <script type="application/javascript" src='{{ "js/toc.js" | absURL }}'></script>
