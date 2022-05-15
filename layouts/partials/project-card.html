@@ -37,7 +37,7 @@
         <a class="github-button" href="https://github.com/{{.Params.githubuser}}/{{.Params.githubrepo}}" data-icon="octicon-star" data-show-count="true" aria-label="Star {{.Params.githubuser}}/{{.Params.githubrepo}} on GitHub">Star</a>
         {{end}}
         {{ if .Params.curseforgeid}}
-        <a {{if .Params.curseforge}}href="https://www.curseforge.com/minecraft/mc-mods/{{.Params.curseforge}}" {{end}}><img class="pr-1 pl-1" style="height: fit-content;" src="http://cf.way2muchnoise.eu/short_{{.Params.curseforgeid}}.svg"/></a>
+        <a {{if .Params.curseforge}}href="https://www.curseforge.com/minecraft/mc-mods/{{.Params.curseforge}}" {{end}}><img class="pr-1 pl-1" style="height: fit-content;" src="https://cf.way2muchnoise.eu/short_{{.Params.curseforgeid}}.svg"/></a>
         {{end}}
         {{ if and .Params.modrinth }}
         <a href="https://modrinth.com/mod/{{.Params.modrinth}}">
