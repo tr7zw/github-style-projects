@@ -28,7 +28,7 @@
           <div class="col-12 d-inline-block">
             <div class="d-inline-block mb-1">
               <h3 class="wb-break-all">
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                <a href="{{if .Params.externalpost}}{{.Params.externalpost}}{{else}}{{ .Permalink }}{{end}}">{{ .Title }}</a>
               </h3>
             </div>
 
