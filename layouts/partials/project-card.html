@@ -28,9 +28,9 @@
       <div class="flex-justify-center d-flex">
         <a href="{{ .Permalink }}">
       {{if hasPrefix .Params.icon "/"}}
-      <img src="{{ .Site.BaseURL }}/{{.Params.icon}}" style="max-height:200px" /> 
+      <img src="{{ .Site.BaseURL }}/{{.Params.icon}}" style="max-width:100%; max-height:200px" /> 
       {{else}}
-      <img src="{{.Params.icon}}" style="max-height:200px" /> 
+      <img src="{{.Params.icon}}" style="max-width:100%; max-height:200px" /> 
       {{end}}
       </a>
       </div>
