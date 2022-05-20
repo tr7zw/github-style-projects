@@ -58,6 +58,7 @@
                       </div>
                     </details-menu>
                       {{ countwords .Content }} Words
+                      {{if .Params.externalurl}}<a href="{{.Params.externalurl}}">External Link</a>{{end}}
                     <!-- <span class="file-info-divider"></span>
                                         {{ .ReadingTime }} min -->
 
