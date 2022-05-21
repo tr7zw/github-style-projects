@@ -43,15 +43,14 @@
 <!-- Google Analytics -->
 {{ if eq (getenv "HUGO_ENV") "production"}}
 {{ with .Site.GoogleAnalytics }}
+<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
 <script>
-  if (navigator.doNotTrack !== '1') {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    gtag('config', '{{ . }}');
-  }
+  gtag('config', '{{ . }}');
 </script>
 {{ end }}
 {{ end }}
