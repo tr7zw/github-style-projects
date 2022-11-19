@@ -116,6 +116,12 @@
           </a>
           {{ end }}
 
+          {{ if .Site.Params.mastodon}}
+          <a style="margin: 0 10px 10px 0;" rel="me" href="{{ .Site.Params.mastodon }}">
+            <img alt="@mastodon" width="32" height="32" src="{{ "images/mastodon.svg" | absURL }}" class="avatar">
+          </a>
+          {{ end }}
+
           {{ if .Site.Params.twitter}}
           <a style="margin: 0 10px 10px 0;" href="https://twitter.com/{{ .Site.Params.twitter }}">
             <img alt="@twitter" width="32" height="32" src="{{ "images/twitter.png" | absURL }}" class="avatar">
